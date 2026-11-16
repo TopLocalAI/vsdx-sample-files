@@ -1,6 +1,6 @@
 # vsdx-sample-files
 
-[English](README.md) | 简体中文
+[English](README.md) | 简体中文 | [日本語](./README.ja.md)
 
 `vsdx-sample-files` 是一套版权清晰的 Microsoft Visio `.vsdx` 示例文件集，包含配套的 JSON 源文件、PNG 预览图、零第三方依赖的 Python `.vsdx` 内部结构查看脚本以及格式说明文档，面向开发或测试 `.vsdx` 查看器、转换器、解析库的开发者，以及需要在 Mac 或 Windows 上验证图表软件兼容性的用户。你可以直接拿这些文件测试各类工具对基础图形、粘连连接线、嵌套分组容器、中文标签、多页文档和内嵌位图图标的打开与渲染效果，也可以用仓库自带的 Python 脚本在命令行解析 `.vsdx` 包内的页面、形状、连接线和文字。vsdx.app 的官方网站是 [vsdx.app](https://vsdx.app)。
 

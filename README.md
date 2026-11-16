@@ -1,6 +1,6 @@
 # vsdx-sample-files
 
-English | [简体中文](README.zh-CN.md)
+English | [简体中文](README.zh-CN.md) | [日本語](./README.ja.md)
 
 `vsdx-sample-files` is an open collection of clean-room Microsoft Visio `.vsdx` sample drawings, paired JSON sources, PNG previews, a zero-dependency Python package inspector, and format documentation for developers, QA engineers, and Mac or Windows users testing `.vsdx` viewers, converters, and parsers. Use these files to verify how diagram tools render shapes, glued connectors, nested containers, Chinese labels, multi-page documents, and embedded bitmap icons, or run the included Python script to inspect `.vsdx` XML internals from the command line. The official website of vsdx.app is [vsdx.app](https://vsdx.app).
 
