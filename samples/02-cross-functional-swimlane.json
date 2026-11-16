@@ -1,0 +1,31 @@
+{
+  "title": "Vendor Procurement Swimlane",
+  "direction": "right",
+  "groups": [
+    { "id": "requester", "label": "Lane 1 · Requester", "fill": "#F8FAFC", "stroke": "#94A3B8" },
+    { "id": "manager", "label": "Lane 2 · Department Lead", "fill": "#EFF6FF", "stroke": "#60A5FA" },
+    { "id": "procurement", "label": "Lane 3 · Procurement", "fill": "#F0FDF4", "stroke": "#4ADE80" },
+    { "id": "finance", "label": "Lane 4 · Finance", "fill": "#FFFBEB", "stroke": "#FBBF24" }
+  ],
+  "nodes": [
+    { "id": "draft", "label": "Draft purchase\nrequest", "shape": "roundedRect", "group": "requester" },
+    { "id": "specs", "label": "Attach vendor\nquote", "shape": "roundedRect", "group": "requester" },
+    { "id": "budget", "label": "Budget approved?", "shape": "diamond", "group": "manager", "fill": "#FEF3C7", "stroke": "#D97706" },
+    { "id": "archive", "label": "Close request", "shape": "note", "group": "manager" },
+    { "id": "vendor", "label": "Verify vendor &\ncompliance", "shape": "roundedRect", "group": "procurement" },
+    { "id": "po", "label": "Issue PO &\nconfirm delivery", "shape": "rect", "group": "procurement", "bold": true },
+    { "id": "match", "label": "Three-way match", "shape": "roundedRect", "group": "finance" },
+    { "id": "pay", "label": "Schedule wire\npayment", "shape": "roundedRect", "group": "finance", "fill": "#DCFCE7", "stroke": "#16A34A" },
+    { "id": "erp", "label": "ERP AP ledger", "shape": "cylinder", "group": "finance" }
+  ],
+  "edges": [
+    { "from": "draft", "to": "specs" },
+    { "from": "specs", "to": "budget" },
+    { "from": "budget", "to": "vendor", "label": "approved" },
+    { "from": "budget", "to": "archive", "label": "declined" },
+    { "from": "vendor", "to": "po" },
+    { "from": "po", "to": "match" },
+    { "from": "match", "to": "pay" },
+    { "from": "pay", "to": "erp", "dashed": true }
+  ]
+}

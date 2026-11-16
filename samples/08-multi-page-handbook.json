@@ -1,0 +1,63 @@
+[
+  {
+    "title": "1. System Overview",
+    "direction": "right",
+    "groups": [
+      { "id": "backend", "label": "Core Backend", "fill": "#EFF6FF", "stroke": "#60A5FA" }
+    ],
+    "nodes": [
+      { "id": "client", "label": "Web & Desktop App", "shape": "actor" },
+      { "id": "edge", "label": "API Gateway", "shape": "hexagon", "group": "backend" },
+      { "id": "svc", "label": "Document Service", "shape": "roundedRect", "group": "backend" },
+      { "id": "worker", "label": "Export Worker", "shape": "roundedRect", "group": "backend" },
+      { "id": "db", "label": "Metadata DB", "shape": "cylinder", "group": "backend" },
+      { "id": "blob", "label": "Object Storage", "shape": "cylinder", "fill": "#F0FDF4", "stroke": "#16A34A" }
+    ],
+    "edges": [
+      { "from": "client", "to": "edge", "label": "HTTPS" },
+      { "from": "edge", "to": "svc" },
+      { "from": "svc", "to": "db", "arrow": "both" },
+      { "from": "svc", "to": "worker", "label": "async job", "dashed": true },
+      { "from": "worker", "to": "blob", "label": "write PDF/PNG" }
+    ]
+  },
+  {
+    "title": "2. Auth & Token Flow",
+    "direction": "right",
+    "nodes": [
+      { "id": "open", "label": "Click Sign In", "shape": "ellipse", "fill": "#DCFCE7", "stroke": "#16A34A" },
+      { "id": "pkce", "label": "Generate PKCE\nchallenge", "shape": "roundedRect" },
+      { "id": "browser", "label": "Approve in browser", "shape": "roundedRect" },
+      { "id": "valid", "label": "Code valid?", "shape": "diamond", "fill": "#FEF3C7", "stroke": "#D97706" },
+      { "id": "token", "label": "Issue device token", "shape": "roundedRect", "fill": "#DBEAFE", "stroke": "#2563EB" },
+      { "id": "deny", "label": "Show auth error", "shape": "roundedRect", "fill": "#FEE2E2", "stroke": "#DC2626" }
+    ],
+    "edges": [
+      { "from": "open", "to": "pkce" },
+      { "from": "pkce", "to": "browser" },
+      { "from": "browser", "to": "valid" },
+      { "from": "valid", "to": "token", "label": "yes" },
+      { "from": "valid", "to": "deny", "label": "no" }
+    ]
+  },
+  {
+    "title": "3. Incident Triage",
+    "direction": "down",
+    "nodes": [
+      { "id": "alert", "label": "SLO alert triggered", "shape": "ellipse", "fill": "#FEE2E2", "stroke": "#DC2626" },
+      { "id": "ack", "label": "On-call acknowledges", "shape": "roundedRect" },
+      { "id": "sev", "label": "Customer impact?", "shape": "diamond", "fill": "#FEF3C7", "stroke": "#D97706" },
+      { "id": "bridge", "label": "Open incident room\n& status update", "shape": "roundedRect", "fill": "#FFEDD5", "stroke": "#EA580C" },
+      { "id": "mitigate", "label": "Rollback or scale", "shape": "roundedRect" },
+      { "id": "post", "label": "Write postmortem", "shape": "note" }
+    ],
+    "edges": [
+      { "from": "alert", "to": "ack" },
+      { "from": "ack", "to": "sev" },
+      { "from": "sev", "to": "bridge", "label": "yes (SEV-1/2)" },
+      { "from": "sev", "to": "mitigate", "label": "no (SEV-3)" },
+      { "from": "bridge", "to": "mitigate" },
+      { "from": "mitigate", "to": "post" }
+    ]
+  }
+]

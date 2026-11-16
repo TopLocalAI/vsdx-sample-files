@@ -1,0 +1,82 @@
+{
+  "title": "Edge Service Map (Embedded Icons)",
+  "direction": "right",
+  "groups": [
+    {
+      "id": "cluster",
+      "label": "App Cluster",
+      "fill": "#F8FAFC",
+      "stroke": "#94A3B8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "web",
+      "label": "Browser Client",
+      "shape": "image",
+      "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij4KICA8cmVjdCB4PSI2IiB5PSIxMCIgd2lkdGg9IjUyIiBoZWlnaHQ9IjQ0IiByeD0iOCIgZmlsbD0iI0VGRjZGRiIgc3Ryb2tlPSIjMjU2M0VCIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8bGluZSB4MT0iNiIgeTE9IjIyIiB4Mj0iNTgiIHkyPSIyMiIgc3Ryb2tlPSIjMjU2M0VCIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8Y2lyY2xlIGN4PSIxNCIgY3k9IjE2IiByPSIyLjUiIGZpbGw9IiNFRjQ0NDQiLz4KICA8Y2lyY2xlIGN4PSIyMiIgY3k9IjE2IiByPSIyLjUiIGZpbGw9IiNGNTlFMEIiLz4KICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjE2IiByPSIyLjUiIGZpbGw9IiMxMEI5ODEiLz4KPC9zdmc+",
+      "width": 56,
+      "height": 56
+    },
+    {
+      "id": "edge",
+      "label": "TLS Shield",
+      "shape": "image",
+      "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij4KICA8cGF0aCBkPSJNMzIgNiBMNTQgMTQgVjMwIEM1NCA0NCA0NCA1MyAzMiA1OCBDMjAgNTMgMTAgNDQgMTAgMzAgVjE0IFoiIGZpbGw9IiNGRkY3RUQiIHN0cm9rZT0iI0VBNTgwQyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTIzIDMyIEwyOSAzOCBMNDIgMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0VBNTgwQyIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=",
+      "width": 56,
+      "height": 56
+    },
+    {
+      "id": "api1",
+      "label": "Worker A",
+      "shape": "image",
+      "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij4KICA8cmVjdCB4PSIxMCIgeT0iMTAiIHdpZHRoPSI0NCIgaGVpZ2h0PSIxOCIgcng9IjQiIGZpbGw9IiNGMEZERjQiIHN0cm9rZT0iIzE2QTM0QSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjM2IiB3aWR0aD0iNDQiIGhlaWdodD0iMTgiIHJ4PSI0IiBmaWxsPSIjRjBGREY0IiBzdHJva2U9IiMxNkEzNEEiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxjaXJjbGUgY3g9IjE4IiBjeT0iMTkiIHI9IjIuNSIgZmlsbD0iIzE2QTM0QSIvPgogIDxjaXJjbGUgY3g9IjE4IiBjeT0iNDUiIHI9IjIuNSIgZmlsbD0iIzE2QTM0QSIvPgo8L3N2Zz4=",
+      "width": 56,
+      "height": 56,
+      "group": "cluster"
+    },
+    {
+      "id": "api2",
+      "label": "Worker B",
+      "shape": "image",
+      "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij4KICA8cmVjdCB4PSIxMCIgeT0iMTAiIHdpZHRoPSI0NCIgaGVpZ2h0PSIxOCIgcng9IjQiIGZpbGw9IiNGMEZERjQiIHN0cm9rZT0iIzE2QTM0QSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjM2IiB3aWR0aD0iNDQiIGhlaWdodD0iMTgiIHJ4PSI0IiBmaWxsPSIjRjBGREY0IiBzdHJva2U9IiMxNkEzNEEiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxjaXJjbGUgY3g9IjE4IiBjeT0iMTkiIHI9IjIuNSIgZmlsbD0iIzE2QTM0QSIvPgogIDxjaXJjbGUgY3g9IjE4IiBjeT0iNDUiIHI9IjIuNSIgZmlsbD0iIzE2QTM0QSIvPgo8L3N2Zz4=",
+      "width": 56,
+      "height": 56,
+      "group": "cluster"
+    },
+    {
+      "id": "store",
+      "label": "State Store",
+      "shape": "image",
+      "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij4KICA8ZWxsaXBzZSBjeD0iMzIiIGN5PSIxNSIgcng9IjIwIiByeT0iNyIgZmlsbD0iI0RCRUFGRSIgc3Ryb2tlPSIjMUQ0RUQ4IiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cGF0aCBkPSJNMTIgMTUgVjQ3IEMxMiA1MSAyMSA1NCAzMiA1NCBDNDMgNTQgNTIgNTEgNTIgNDcgVjE1IiBmaWxsPSIjRUZGNkZGIiBzdHJva2U9IiMxRDRFRDgiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxlbGxpcHNlIGN4PSIzMiIgY3k9IjE1IiByeD0iMjAiIHJ5PSI3IiBmaWxsPSIjREJFQUZFIiBzdHJva2U9IiMxRDRFRDgiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxwYXRoIGQ9Ik0xMiAzMSBDMTIgMzUgMjEgMzggMzIgMzggQzQzIDM4IDUyIDM1IDUyIDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiMxRDRFRDgiIHN0cm9rZS13aWR0aD0iMi41Ii8+Cjwvc3ZnPg==",
+      "width": 56,
+      "height": 56,
+      "group": "cluster"
+    }
+  ],
+  "edges": [
+    {
+      "from": "web",
+      "to": "edge",
+      "label": "HTTPS"
+    },
+    {
+      "from": "edge",
+      "to": "api1"
+    },
+    {
+      "from": "edge",
+      "to": "api2"
+    },
+    {
+      "from": "api1",
+      "to": "store",
+      "arrow": "both"
+    },
+    {
+      "from": "api2",
+      "to": "store",
+      "arrow": "both"
+    }
+  ]
+}

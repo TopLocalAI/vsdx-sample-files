@@ -1,0 +1,31 @@
+{
+  "title": "员工入职与权限开通流程",
+  "direction": "down",
+  "groups": [
+    { "id": "hr", "label": "人力资源部", "fill": "#EFF6FF", "stroke": "#60A5FA" },
+    { "id": "it", "label": "IT 运维支持", "fill": "#F0FDF4", "stroke": "#4ADE80" },
+    { "id": "dept", "label": "用人部门", "fill": "#FFFBEB", "stroke": "#FBBF24" }
+  ],
+  "nodes": [
+    { "id": "offer", "label": "候选人确认录用", "shape": "ellipse", "fill": "#DCFCE7", "stroke": "#16A34A" },
+    { "id": "dossier", "label": "核验入职材料\n并建档", "shape": "roundedRect", "group": "hr" },
+    { "id": "contract", "label": "签署劳动合同", "shape": "roundedRect", "group": "hr" },
+    { "id": "sso", "label": "开通企业邮箱\n与单点登录", "shape": "roundedRect", "group": "it" },
+    { "id": "laptop", "label": "发放办公电脑\n与门禁卡", "shape": "roundedRect", "group": "it" },
+    { "id": "mentor", "label": "指定导师并制定\n试用期目标", "shape": "roundedRect", "group": "dept" },
+    { "id": "review", "label": "转正答辩通过？", "shape": "diamond", "group": "dept", "fill": "#FEF3C7", "stroke": "#D97706" },
+    { "id": "extend", "label": "辅导改进计划", "shape": "note", "group": "dept" },
+    { "id": "regular", "label": "办理正式转正", "shape": "ellipse", "fill": "#DBEAFE", "stroke": "#2563EB" }
+  ],
+  "edges": [
+    { "from": "offer", "to": "dossier" },
+    { "from": "dossier", "to": "contract" },
+    { "from": "contract", "to": "sso" },
+    { "from": "sso", "to": "laptop" },
+    { "from": "laptop", "to": "mentor" },
+    { "from": "mentor", "to": "review" },
+    { "from": "review", "to": "regular", "label": "通过" },
+    { "from": "review", "to": "extend", "label": "需改进" },
+    { "from": "extend", "to": "review", "dashed": true }
+  ]
+}

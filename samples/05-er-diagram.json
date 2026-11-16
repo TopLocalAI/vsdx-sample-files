@@ -1,0 +1,55 @@
+{
+  "title": "Subscription Billing ER Diagram",
+  "direction": "right",
+  "nodes": [
+    {
+      "id": "orgs",
+      "label": "organizations\n------------------\nPK id : uuid\nname : varchar(120)\nbilling_email : varchar\ncreated_at : timestamptz",
+      "shape": "rect",
+      "fill": "#EFF6FF",
+      "stroke": "#2563EB"
+    },
+    {
+      "id": "users",
+      "label": "users\n------------------\nPK id : uuid\nemail : varchar(255)\nfull_name : varchar(120)\ncreated_at : timestamptz",
+      "shape": "rect",
+      "fill": "#EFF6FF",
+      "stroke": "#2563EB"
+    },
+    {
+      "id": "members",
+      "label": "memberships\n------------------\nPK id : uuid\nFK org_id : uuid\nFK user_id : uuid\nrole : varchar(32)",
+      "shape": "rect",
+      "fill": "#F8FAFC",
+      "stroke": "#475569"
+    },
+    {
+      "id": "plans",
+      "label": "plans\n------------------\nPK id : varchar(32)\ndisplay_name : varchar\nprice_cents : integer\ninterval : varchar(16)",
+      "shape": "rect",
+      "fill": "#F0FDF4",
+      "stroke": "#16A34A"
+    },
+    {
+      "id": "subs",
+      "label": "subscriptions\n------------------\nPK id : uuid\nFK org_id : uuid\nFK plan_id : varchar(32)\nstatus : varchar(24)\nrenews_at : timestamptz",
+      "shape": "rect",
+      "fill": "#FFFBEB",
+      "stroke": "#D97706"
+    },
+    {
+      "id": "invoices",
+      "label": "invoices\n------------------\nPK id : uuid\nFK subscription_id : uuid\ntotal_cents : integer\npaid_at : timestamptz",
+      "shape": "rect",
+      "fill": "#FFFBEB",
+      "stroke": "#D97706"
+    }
+  ],
+  "edges": [
+    { "from": "orgs", "to": "members", "label": "1 : N", "arrow": "end" },
+    { "from": "users", "to": "members", "label": "1 : N", "arrow": "end" },
+    { "from": "orgs", "to": "subs", "label": "1 : N", "arrow": "end" },
+    { "from": "plans", "to": "subs", "label": "1 : N", "arrow": "end" },
+    { "from": "subs", "to": "invoices", "label": "1 : N", "arrow": "end" }
+  ]
+}

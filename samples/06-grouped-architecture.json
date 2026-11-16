@@ -1,0 +1,31 @@
+{
+  "title": "Event Analytics Architecture",
+  "direction": "right",
+  "groups": [
+    { "id": "ingest", "label": "Ingestion Edge", "fill": "#F8FAFC", "stroke": "#94A3B8" },
+    { "id": "platform", "label": "Streaming Platform", "fill": "#EFF6FF", "stroke": "#60A5FA" },
+    { "id": "compute", "label": "Stream Workers", "parent": "platform", "fill": "#FFFFFF", "stroke": "#93C5FD" },
+    { "id": "storage", "label": "Analytical Storage", "parent": "platform", "fill": "#F0FDF4", "stroke": "#4ADE80" }
+  ],
+  "nodes": [
+    { "id": "sdk", "label": "Client SDKs", "shape": "actor" },
+    { "id": "collector", "label": "HTTP Collector", "shape": "hexagon", "group": "ingest" },
+    { "id": "schema_reg", "label": "Schema Validator", "shape": "roundedRect", "group": "ingest" },
+    { "id": "bus", "label": "Partitioned Log", "shape": "rect", "group": "platform", "fill": "#FEF3C7", "stroke": "#D97706" },
+    { "id": "enrich", "label": "Session Enricher", "shape": "roundedRect", "group": "compute" },
+    { "id": "rollup", "label": "Minute Aggregator", "shape": "roundedRect", "group": "compute" },
+    { "id": "olap", "label": "Columnar Store", "shape": "cylinder", "group": "storage" },
+    { "id": "lake", "label": "Parquet Archive", "shape": "cylinder", "group": "storage" },
+    { "id": "query", "label": "Metrics Query API", "shape": "roundedRect", "fill": "#DBEAFE", "stroke": "#2563EB" }
+  ],
+  "edges": [
+    { "from": "sdk", "to": "collector", "label": "JSON batch" },
+    { "from": "collector", "to": "schema_reg" },
+    { "from": "schema_reg", "to": "bus" },
+    { "from": "bus", "to": "enrich" },
+    { "from": "enrich", "to": "rollup" },
+    { "from": "rollup", "to": "olap" },
+    { "from": "bus", "to": "lake", "label": "raw sink", "dashed": true },
+    { "from": "query", "to": "olap", "arrow": "both" }
+  ]
+}

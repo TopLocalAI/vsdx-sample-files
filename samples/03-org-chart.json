@@ -1,0 +1,27 @@
+{
+  "title": "Product & Engineering Org Chart",
+  "direction": "down",
+  "nodes": [
+    { "id": "vp", "label": "Elena Vance\nVP of Engineering", "shape": "roundedRect", "bold": true, "fill": "#1E3A8A", "stroke": "#1E3A8A", "fontColor": "#FFFFFF" },
+    { "id": "dir_plat", "label": "Marcus Lin\nDirector, Platform", "shape": "roundedRect", "bold": true, "fill": "#DBEAFE", "stroke": "#2563EB" },
+    { "id": "dir_app", "label": "Priya Nair\nDirector, Core App", "shape": "roundedRect", "bold": true, "fill": "#DBEAFE", "stroke": "#2563EB" },
+    { "id": "dir_data", "label": "Tomas Novak\nHead of Data", "shape": "roundedRect", "bold": true, "fill": "#DBEAFE", "stroke": "#2563EB" },
+    { "id": "sre", "label": "Cloud & SRE\n(6 engineers)", "shape": "rect", "fill": "#F8FAFC", "stroke": "#64748B" },
+    { "id": "sec", "label": "Security & IAM\n(4 engineers)", "shape": "rect", "fill": "#F8FAFC", "stroke": "#64748B" },
+    { "id": "mac", "label": "Desktop Client\n(5 engineers)", "shape": "rect", "fill": "#F8FAFC", "stroke": "#64748B" },
+    { "id": "design", "label": "Product Design\n(3 designers)", "shape": "rect", "fill": "#F8FAFC", "stroke": "#64748B" },
+    { "id": "ml", "label": "Applied ML\n(4 engineers)", "shape": "rect", "fill": "#F8FAFC", "stroke": "#64748B" },
+    { "id": "bi", "label": "Analytics & BI\n(3 analysts)", "shape": "rect", "fill": "#F8FAFC", "stroke": "#64748B" }
+  ],
+  "edges": [
+    { "from": "vp", "to": "dir_plat", "arrow": "none" },
+    { "from": "vp", "to": "dir_app", "arrow": "none" },
+    { "from": "vp", "to": "dir_data", "arrow": "none" },
+    { "from": "dir_plat", "to": "sre", "arrow": "none" },
+    { "from": "dir_plat", "to": "sec", "arrow": "none" },
+    { "from": "dir_app", "to": "mac", "arrow": "none" },
+    { "from": "dir_app", "to": "design", "arrow": "none" },
+    { "from": "dir_data", "to": "ml", "arrow": "none" },
+    { "from": "dir_data", "to": "bi", "arrow": "none" }
+  ]
+}

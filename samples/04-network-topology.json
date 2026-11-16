@@ -1,0 +1,33 @@
+{
+  "title": "Hybrid Cloud Network Topology",
+  "direction": "right",
+  "groups": [
+    { "id": "office", "label": "Branch Office (10.10.0.0/16)", "fill": "#F8FAFC", "stroke": "#94A3B8" },
+    { "id": "dmz", "label": "Cloud DMZ (172.16.1.0/24)", "fill": "#FFF7ED", "stroke": "#FB923C" },
+    { "id": "private", "label": "Private App VPC (172.16.10.0/24)", "fill": "#EFF6FF", "stroke": "#60A5FA" }
+  ],
+  "nodes": [
+    { "id": "staff", "label": "Office LAN", "shape": "actor", "group": "office" },
+    { "id": "vpn_gw", "label": "Edge Router\n(IPSec)", "shape": "hexagon", "group": "office", "fill": "#E2E8F0", "stroke": "#475569" },
+    { "id": "internet", "label": "Public\nInternet", "shape": "ellipse", "fill": "#F1F5F9", "stroke": "#64748B" },
+    { "id": "waf", "label": "WAF & Firewall", "shape": "hexagon", "group": "dmz", "fill": "#FFEDD5", "stroke": "#EA580C" },
+    { "id": "alb", "label": "Ingress LB", "shape": "roundedRect", "group": "dmz" },
+    { "id": "bastion", "label": "VPN Concentrator", "shape": "hexagon", "group": "dmz" },
+    { "id": "app1", "label": "API Node A", "shape": "rect", "group": "private" },
+    { "id": "app2", "label": "API Node B", "shape": "rect", "group": "private" },
+    { "id": "db_pri", "label": "Primary DB", "shape": "cylinder", "group": "private", "fill": "#DBEAFE", "stroke": "#2563EB" },
+    { "id": "db_rep", "label": "Read Replica", "shape": "cylinder", "group": "private", "fill": "#F1F5F9", "stroke": "#64748B" }
+  ],
+  "edges": [
+    { "from": "staff", "to": "vpn_gw" },
+    { "from": "vpn_gw", "to": "bastion", "label": "IPSec tunnel", "arrow": "both", "dashed": true },
+    { "from": "internet", "to": "waf", "label": "TLS 443" },
+    { "from": "waf", "to": "alb" },
+    { "from": "alb", "to": "app1" },
+    { "from": "alb", "to": "app2" },
+    { "from": "bastion", "to": "app1", "label": "SSH 22", "dashed": true },
+    { "from": "app1", "to": "db_pri", "label": "5432" },
+    { "from": "app2", "to": "db_pri", "label": "5432" },
+    { "from": "db_pri", "to": "db_rep", "label": "WAL replication", "dashed": true }
+  ]
+}

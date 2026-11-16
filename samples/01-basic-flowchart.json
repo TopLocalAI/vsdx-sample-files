@@ -1,0 +1,30 @@
+{
+  "title": "Customer Refund Process",
+  "direction": "right",
+  "nodes": [
+    { "id": "start", "label": "Refund requested", "shape": "ellipse", "fill": "#DCFCE7", "stroke": "#16A34A" },
+    { "id": "lookup", "label": "Look up order", "shape": "roundedRect" },
+    { "id": "eligible", "label": "Within 30 days?", "shape": "diamond", "fill": "#FEF3C7", "stroke": "#D97706" },
+    { "id": "auto_check", "label": "Amount <= $50?", "shape": "diamond", "fill": "#FEF3C7", "stroke": "#D97706" },
+    { "id": "review", "label": "Lead review", "shape": "roundedRect" },
+    { "id": "approved", "label": "Approved?", "shape": "diamond", "fill": "#FEF3C7", "stroke": "#D97706" },
+    { "id": "refund", "label": "Issue refund", "shape": "roundedRect", "fill": "#DBEAFE", "stroke": "#2563EB" },
+    { "id": "ledger", "label": "Billing ledger", "shape": "cylinder", "fill": "#F1F5F9", "stroke": "#64748B" },
+    { "id": "decline", "label": "Send decline email", "shape": "roundedRect", "fill": "#FEE2E2", "stroke": "#DC2626" },
+    { "id": "done", "label": "Ticket closed", "shape": "ellipse", "fill": "#E2E8F0", "stroke": "#475569" }
+  ],
+  "edges": [
+    { "from": "start", "to": "lookup" },
+    { "from": "lookup", "to": "eligible" },
+    { "from": "eligible", "to": "auto_check", "label": "yes" },
+    { "from": "eligible", "to": "decline", "label": "no" },
+    { "from": "auto_check", "to": "refund", "label": "yes" },
+    { "from": "auto_check", "to": "review", "label": "no" },
+    { "from": "review", "to": "approved" },
+    { "from": "approved", "to": "refund", "label": "yes" },
+    { "from": "approved", "to": "decline", "label": "no" },
+    { "from": "refund", "to": "ledger", "label": "record", "dashed": true },
+    { "from": "refund", "to": "done" },
+    { "from": "decline", "to": "done" }
+  ]
+}
